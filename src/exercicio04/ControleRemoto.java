@@ -35,6 +35,13 @@ public class ControleRemoto
         }
     }
 
+    public void trocaCanal(Televisao tv, int canal){
+        if(canal>=0&&canal<=tv.getTotalCanais())
+            tv.setCanalAtual(canal);
+        else
+            System.out.println("Não existe esse canal");
+    }
+
     public void consultaEstado(Televisao tv){
         System.out.println("Volume: " + tv.getVolumeAtual() + " Canal: " + tv.getCanalAtual());
     }
