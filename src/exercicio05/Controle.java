@@ -2,7 +2,7 @@ package exercicio05;
 
 import java.util.Scanner;
 
-// Abstrata, pois não precisaremos criar nenhum objeto dela
+// Abstrata, pois não precisaremos criar nenhum objeto dela. EXEMPLO DE COMPOSIÇÃO ESSE
 
 public abstract class Controle {
 

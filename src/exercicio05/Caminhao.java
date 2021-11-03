@@ -1,14 +1,12 @@
 package exercicio05;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Caminhao {
 
     private String tipo;
     private int totalPluviometros;
-    List<Pluviometro> listaPluviometros = new ArrayList<Pluviometro>(); // Criar uma classe depois
+    List<Pluviometro> listaPluviometros;
 
     public Caminhao(String tipo, int totalPluviometros, List<Pluviometro> listaPluviometros) {
         this.tipo = tipo;

@@ -18,7 +18,7 @@ public class SelecionadorCaminhao extends Controle{
             tipoCaminhao = leString();
         }
 
-        // Aqui ele lê a lista com os dados dos caminhoes até digitar Fim
+        // Laço que lê e gera a lista com os dados dos caminhoes até digitar Fim
         while(!tipoCaminhao.equals("Fim")){
             int totalPluviometros;
 
@@ -28,6 +28,7 @@ public class SelecionadorCaminhao extends Controle{
             System.out.println("Agora, compute a lista de pluviômetros a serem transportados: ");
             List<Pluviometro> listaPluviometros = new ArrayList<Pluviometro>();
 
+            // Laço que lê e gera a lista de pluviomêtros
             for(int i=0; i<totalPluviometros; i++){
                 System.out.println("Digite um tipo de pluviômetro válido (p, m ou g) -> ["+i+"]: ");
                 String tipoPluviometro = leString();
@@ -41,6 +42,7 @@ public class SelecionadorCaminhao extends Controle{
                 listaPluviometros.add(p);
             }
 
+            // Cria o objeto do tipo Caminhao com os dados coletados e adiciona na listaCaminhoes
             Caminhao c = new Caminhao(tipoCaminhao, totalPluviometros, listaPluviometros);
             listaCaminhoes.add(c);
 
@@ -56,7 +58,7 @@ public class SelecionadorCaminhao extends Controle{
         }
 
 
-        // Código para encontrar o mais apto, podia colocar num outro método, privado de preferencia
+        // Algoritmo para encontrar o mais apto, podia colocar num outro método, privado de preferencia
 
         int idMaisApto = 0, capacidadeTotal = 0;
         for(int i = 0; i < totalCaminhoes; i++) {
@@ -76,7 +78,7 @@ public class SelecionadorCaminhao extends Controle{
             }
         }
 
-        // Faz a impressão do caminhão mais apto, idem o comentario acima
+        // Faz a impressão do caminhão mais apto - perguntar se a melhor escolha é colocar num método privado
 
         System.out.println("O caminhão mais apto tem: ");
         System.out.println("Tipo: "+ listaCaminhoes.get(idMaisApto).getTipo());

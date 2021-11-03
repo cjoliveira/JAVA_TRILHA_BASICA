@@ -1,8 +1,5 @@
 package exercicio05;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Pluviometro {
     private String tipo;
     private int capacidade;
