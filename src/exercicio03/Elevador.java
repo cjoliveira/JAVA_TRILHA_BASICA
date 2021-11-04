@@ -47,31 +47,17 @@ public class Elevador {
         return andarAtual;
     }
 
-    public void setAndarAtual(int andarAtual) {
-        this.andarAtual = andarAtual;
-    }
-
     public int getCapacidadeElevador() {
         return capacidadeElevador;
-    }
-
-    public void setCapacidadeElevador(int capacidadeElevador) {
-        this.capacidadeElevador = capacidadeElevador;
     }
 
     public int getQtdPessoasNoElevador() {
         return qtdPessoasNoElevador;
     }
 
-    public void setQtdPessoasNoElevador(int qtdPessoasNoElevador) {
-        this.qtdPessoasNoElevador = qtdPessoasNoElevador;
-    }
-
     public int getTotalAndares() {
         return totalAndares;
     }
 
-    public void setTotalAndares(int totalAndares) {
-        this.totalAndares = totalAndares;
-    }
+
 }
