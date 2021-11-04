@@ -14,8 +14,16 @@ public class Main {
 
     public static void main(String[] args){
         Scanner entrada = new Scanner(System.in);
-        System.out.print("Qual exercício exercício que desja testar (1 ao 5 ou 0 para sair)? ");
+        System.out.println("Qual exercício exercício que desja testar? ");
+        System.out.print("""
+                1) Pessoa
+                2) Agenda
+                3) Elevador
+                4) Controle Remoto/TV
+                5) Caminhão mais apto
+                0) Encerrar programa         -> """);
         int opcao = entrada.nextInt();
+        System.out.println("");
         while(opcao!=0){
             switch(opcao){
                 case 1:
@@ -37,6 +45,9 @@ public class Main {
                 case 5:
                     System.out.println("Testando exercício05... Caminhão mais apto");
                     executaTesteExercicio05();
+                    break;
+                default:
+                    System.out.println("Opção inválida, tente novamente");
                     break;
             }
             System.out.print("\nContinuando teste dos exercicios... Escolha um deles ou 0 para sair: ");
@@ -118,7 +129,7 @@ public class Main {
     private static void executaTesteExercicio03(){
         Elevador elevador = new Elevador();
         Scanner entrada = new Scanner(System.in);
-        System.out.println("Inicialize o Elevador: ");
+        System.out.println("-> Inicialize o Elevador.");
         System.out.print("Capacidade total do elevador: ");
         int capacidadeTotal = entrada.nextInt();
         System.out.print("Total de andares do predio: ");
@@ -156,9 +167,11 @@ public class Main {
                     System.out.println("Capacidade do Elevador: " + elevador.getCapacidadeElevador());
                     System.out.println("Quantidade de pessoas no Elevador: " + elevador.getQtdPessoasNoElevador());
                     System.out.println("Total de andares no prédio: " + elevador.getTotalAndares());
+                    System.out.println("sucess test");
                     break;
                 default:
                     System.out.print("Opção inválida, tente novamente.");
+                    System.out.println("sucess test");
                     break;
             }
             System.out.print("\nContinue... Escolha uma opção: ");
@@ -180,7 +193,7 @@ public class Main {
                 3) Aumentar canal
                 4) Diminuir canal
                 5) Trocar para canal indicado
-                6) Consultar volume
+                6) Consultar estado
                 0) Encerrar Exercício             -> """);
         int opcao = entrada.nextInt();
         while(opcao!=0){
@@ -205,9 +218,11 @@ public class Main {
                     System.out.print("Digite o canal que deseja: ");
                     int canal = entrada.nextInt();
                     controle.trocaCanal(tv, canal);
+                    System.out.println("sucess test");
                     break;
                 case 6:
                     controle.consultaEstado(tv);
+                    System.out.println("sucess test");
                     break;
                 default:
                     System.out.print("Opção inválida, tente novamente.");

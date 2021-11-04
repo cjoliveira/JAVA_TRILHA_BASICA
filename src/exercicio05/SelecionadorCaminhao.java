@@ -13,7 +13,7 @@ public class SelecionadorCaminhao extends Controle{
 
         String tipoCaminhao = "";
         System.out.println("Compute os dados da sua lista de caminhões:");
-        while (!(tipoCaminhao.equals("Alfa") || tipoCaminhao.equals("Beta") || tipoCaminhao.equals("Fim"))) {
+        while (!(tipoCaminhao.equalsIgnoreCase("Alfa") || tipoCaminhao.equalsIgnoreCase("Beta") || tipoCaminhao.equalsIgnoreCase("Fim"))) {
             System.out.println("Digite um tipo válido para o caminhão (Alfa, Beta ou Fim para terminar): ");
             tipoCaminhao = leString();
         }
@@ -32,11 +32,11 @@ public class SelecionadorCaminhao extends Controle{
             for(int i=0; i<totalPluviometros; i++){
                 System.out.println("Digite um tipo de pluviômetro válido (p, m ou g) -> ["+i+"]: ");
                 String tipoPluviometro = leString();
-                boolean validaTipo = (!(tipoPluviometro.equals("p")||tipoPluviometro.equals("m")||tipoPluviometro.equals("g")));
+                boolean validaTipo = (!(tipoPluviometro.equalsIgnoreCase("p")||tipoPluviometro.equalsIgnoreCase("m")||tipoPluviometro.equalsIgnoreCase("g")));
                 while(validaTipo){
                     System.out.println("Tente novamente -> ["+i+"]: ");
                     tipoPluviometro = leString();
-                    validaTipo = (!(tipoPluviometro.equals("p")||tipoPluviometro.equals("m")||tipoPluviometro.equals("g")));
+                    validaTipo = (!(tipoPluviometro.equalsIgnoreCase("p")||tipoPluviometro.equalsIgnoreCase("m")||tipoPluviometro.equalsIgnoreCase("g")));
                 }
                 Pluviometro p = new Pluviometro(tipoPluviometro);
                 listaPluviometros.add(p);
@@ -49,7 +49,7 @@ public class SelecionadorCaminhao extends Controle{
             // Verificação para fechar o looping
             System.out.println("Digite um tipo válido para o caminhão (Alfa, Beta ou Fim para terminar): ");
             tipoCaminhao = leString();
-            while (!(tipoCaminhao.equals("Alfa") || tipoCaminhao.equals("Beta") || tipoCaminhao.equals("Fim"))) {
+            while (!(tipoCaminhao.equalsIgnoreCase("Alfa") || tipoCaminhao.equalsIgnoreCase("Beta") || tipoCaminhao.equalsIgnoreCase("Fim"))) {
                 System.out.println("Tente novamente (Alfa, Beta ou Fim para terminar): ");
                 tipoCaminhao = leString();
             }
