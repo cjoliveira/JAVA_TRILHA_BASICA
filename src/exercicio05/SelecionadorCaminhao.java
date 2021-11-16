@@ -7,30 +7,35 @@ public class SelecionadorCaminhao extends Controle{
     private static int totalCaminhoes = 0;
 
     public static void selecionaMaisApto(){
-       List<Caminhao> listaCaminhoes = new ArrayList<Caminhao>();
-
+        List<Caminhao> listaCaminhoes = new ArrayList<Caminhao>();
+        TipoCaminhao tipoCaminhao;
         System.out.println("Compute os dados da sua lista de caminhões:");
         boolean opcao = true;
 
         while(opcao){
             System.out.print("\nDigite um tipo válido para o caminhão (Alfa, Beta ou Fim para terminar): ");
-            String tipoCaminhao = leString();
-            if(ehTipoValidoCaminhao(tipoCaminhao)){
-                    if(!tipoCaminhao.equalsIgnoreCase("Fim")){
-                        System.out.print("Digite o número de pluviômetros a serem transportados: ");
-                        int totalPluviometros = leInteiro();
-                        List<Pluviometro> listaPluviometros = geraListaPluviometros(totalPluviometros);
-                        Caminhao c = new Caminhao(tipoCaminhao, totalPluviometros, listaPluviometros);
-                        listaCaminhoes.add(c);
-                        totalCaminhoes++;
-                    }else{
-                        opcao = false;
-                        System.out.println("Saindo...\n");
-                        int idMaisApto = getIdMaisApto(listaCaminhoes);
-                        imprimeCaminhaoMaisApto(idMaisApto, listaCaminhoes);
-                    }
+            String entrada = leString();
+            try {
+                tipoCaminhao = TipoCaminhao.getTipoByString(entrada);
+            }catch(RuntimeException e){
+                tipoCaminhao = TipoCaminhao.REPETE;
+            }
+            if(tipoCaminhao.equals((TipoCaminhao.ENCERRA))){
+                opcao = false;
+                System.out.println("Saindo...\n");
+                int idMaisApto = getIdMaisApto(listaCaminhoes);
+                imprimeCaminhaoMaisApto(idMaisApto, listaCaminhoes);
             }else{
-                System.out.println("Tipo inválido. Tente novamente...");
+                if ((tipoCaminhao.equals(TipoCaminhao.REPETE))) {
+                    System.out.println("Tipo inválido. Tente novamente...");
+                }else{
+                    System.out.print("Digite o número de pluviômetros a serem transportados: ");
+                    int totalPluviometros = leInteiro();
+                    List<Pluviometro> listaPluviometros = geraListaPluviometros(totalPluviometros);
+                    Caminhao c = new Caminhao(tipoCaminhao.getTipo(), totalPluviometros, listaPluviometros);
+                    listaCaminhoes.add(c);
+                    totalCaminhoes++;
+                }
             }
         }
     }
@@ -38,10 +43,6 @@ public class SelecionadorCaminhao extends Controle{
     // Métodos que vericam se os tipos são válidos
     public static boolean ehTipoValidoPluviometro(String tipoPluviometro){
         return (tipoPluviometro.equalsIgnoreCase("p")||tipoPluviometro.equalsIgnoreCase("m")||tipoPluviometro.equalsIgnoreCase("g"));
-    }
-
-    private static boolean ehTipoValidoCaminhao(String tipoCaminhao){
-        return tipoCaminhao.equalsIgnoreCase("Alfa") || tipoCaminhao.equalsIgnoreCase("Beta") || tipoCaminhao.equalsIgnoreCase("Fim");
     }
 
     // Método que gera a lista com os pluviometros
