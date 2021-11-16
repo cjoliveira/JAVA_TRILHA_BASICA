@@ -1,6 +1,5 @@
 package exercicio04;
 
-import exercicio05.Controle;
 
 public class Televisao{
 
