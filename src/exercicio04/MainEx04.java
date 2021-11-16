@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class MainEx04 {
     public static void main(String[] args){
         Televisao tv = new Televisao();
-        ControleRemoto controle = new ControleRemoto();
+        ControleRemoto controle = new ControleRemoto(tv);
         Scanner entrada = new Scanner(System.in);
         System.out.println("Testando exercício04... Controle Remoto TV");
         System.out.println("Selecione uma das opções: ");
@@ -21,29 +21,29 @@ public class MainEx04 {
         while(opcao!=0){
             switch(opcao){
                 case 1:
-                    controle.aumentaVolume(tv);
+                    controle.aumentaVolume();
                     System.out.println("sucess test");
                     break;
                 case 2:
-                    controle.diminuiVolume(tv);
+                    controle.diminuiVolume();
                     System.out.println("sucess test");
                     break;
                 case 3:
-                    controle.incrementaCanal(tv);
+                    controle.incrementaCanal();
                     System.out.println("sucess test");
                     break;
                 case 4:
-                    controle.diminuiCanal(tv);
+                    controle.diminuiCanal();
                     System.out.println("sucess test");
                     break;
                 case 5:
                     System.out.print("Digite o canal que deseja: ");
                     int canal = entrada.nextInt();
-                    controle.trocaCanal(tv, canal);
+                    controle.trocaCanal(canal);
                     System.out.println("sucess test");
                     break;
                 case 6:
-                    controle.consultaEstado(tv);
+                    controle.consultaEstado();
                     System.out.println("sucess test");
                     break;
                 default:

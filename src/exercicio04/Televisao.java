@@ -1,12 +1,13 @@
 package exercicio04;
 
-public class Televisao {
+import exercicio05.Controle;
+
+public class Televisao{
 
     private int canalAtual;
     private int volumeAtual;
     private int totalCanais; // Ideia: Criar uma lista com todos canais, podendo até consumir de outra classe ou de algum lugar
     private int volumeMax;
-
 
     public Televisao(){
         this.canalAtual = 12;
@@ -14,6 +15,7 @@ public class Televisao {
         this.totalCanais = 100; // Podia ser um parametro do construtor
         this.volumeMax = 100;
     }
+
     public int getCanalAtual() {
         return canalAtual;
     }
