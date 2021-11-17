@@ -15,19 +15,13 @@ public class SelecionadorCaminhao extends Controle{
         while(opcao){
             System.out.print("\nDigite um tipo válido para o caminhão (Alfa, Beta ou Fim para terminar): ");
             String entrada = leString();
-            try {
+            try{
                 tipoCaminhao = TipoCaminhao.getTipoByString(entrada);
-            }catch(RuntimeException e){
-                tipoCaminhao = TipoCaminhao.REPETE;
-            }
-            if(tipoCaminhao.equals((TipoCaminhao.ENCERRA))){
-                opcao = false;
-                System.out.println("Saindo...\n");
-                int idMaisApto = getIdMaisApto(listaCaminhoes);
-                imprimeCaminhaoMaisApto(idMaisApto, listaCaminhoes);
-            }else{
-                if ((tipoCaminhao.equals(TipoCaminhao.REPETE))) {
-                    System.out.println("Tipo inválido. Tente novamente...");
+                if(tipoCaminhao.equals((TipoCaminhao.ENCERRA))){
+                    opcao = false;
+                    System.out.println("Saindo...\n");
+                    int idMaisApto = getIdMaisApto(listaCaminhoes);
+                    imprimeCaminhaoMaisApto(idMaisApto, listaCaminhoes);
                 }else{
                     System.out.print("Digite o número de pluviômetros a serem transportados: ");
                     int totalPluviometros = leInteiro();
@@ -36,6 +30,8 @@ public class SelecionadorCaminhao extends Controle{
                     listaCaminhoes.add(c);
                     totalCaminhoes++;
                 }
+            }catch(RuntimeException e) {
+                System.out.println("Tipo inválido. Tente novamente...");
             }
         }
     }
